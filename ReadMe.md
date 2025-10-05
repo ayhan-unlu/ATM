@@ -1,6 +1,7 @@
 ![Java](https://img.shields.io/badge/Java-17%2B-orange)
 ![License: Free Use](https://img.shields.io/badge/License-Free--Use-green)
 ![Patika.dev](https://img.shields.io/badge/Patika.dev-Project-blue)
+![GitHub last commit](https://img.shields.io/github/last-commit/ayhan-unlu/ATM)
 
 # ⚠️ ATM Project (Work in Progress) ⚠️
 
