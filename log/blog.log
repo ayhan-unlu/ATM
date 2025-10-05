@@ -1370,3 +1370,323 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2025-10-05T14:58:47.843+03:00  INFO 30766 --- [ATM] [RMI TCP Connection(1)-192.168.1.15] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-10-05T14:58:47.843+03:00  INFO 30766 --- [ATM] [RMI TCP Connection(1)-192.168.1.15] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-10-05T14:58:47.844+03:00  INFO 30766 --- [ATM] [RMI TCP Connection(1)-192.168.1.15] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-05T15:13:49.631+03:00  INFO 30766 --- [ATM] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-05T15:13:49.644+03:00  INFO 30766 --- [ATM] [Thread-5] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-05T15:13:49.651+03:00  INFO 30766 --- [ATM] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-05T15:13:49.657+03:00  INFO 30766 --- [ATM] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:13:49.660+03:00  INFO 30766 --- [ATM] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-05T15:13:49.665+03:00  INFO 30766 --- [ATM] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-05T15:13:49.705+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Starting AtmApplication using Java 25 with PID 30766 (/Users/ayhanunlu/IdeaProjects/ATM/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/ATM)
+2025-10-05T15:13:49.705+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-10-05T15:13:49.782+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-05T15:13:49.785+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2025-10-05T15:13:49.815+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-05T15:13:49.815+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-05T15:13:49.815+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-05T15:13:49.819+03:00  INFO 30766 --- [ATM] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-05T15:13:49.819+03:00  INFO 30766 --- [ATM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 113 ms
+2025-10-05T15:13:49.839+03:00  INFO 30766 --- [ATM] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-05T15:13:49.840+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-05T15:13:49.842+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-05T15:13:49.843+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-10-05T15:13:49.845+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@46366956
+2025-10-05T15:13:49.845+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-10-05T15:13:49.846+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-05T15:13:49.846+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-05T15:13:49.846+03:00  INFO 30766 --- [ATM] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-05T15:13:49.864+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-05T15:13:49.869+03:00  INFO 30766 --- [ATM] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:13:49.893+03:00  WARN 30766 --- [ATM] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-05T15:13:49.958+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-05T15:13:49.959+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-05T15:13:49.968+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-05T15:13:49.971+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Started AtmApplication in 0.275 seconds (process running for 903.83)
+2025-10-05T15:13:49.972+03:00  INFO 30766 --- [ATM] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-05T15:14:16.604+03:00  INFO 30766 --- [ATM] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-05T15:14:16.606+03:00  INFO 30766 --- [ATM] [Thread-7] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-05T15:14:16.609+03:00  INFO 30766 --- [ATM] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-05T15:14:16.612+03:00  INFO 30766 --- [ATM] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:14:16.613+03:00  INFO 30766 --- [ATM] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-10-05T15:14:16.614+03:00  INFO 30766 --- [ATM] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-10-05T15:14:16.660+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Starting AtmApplication using Java 25 with PID 30766 (/Users/ayhanunlu/IdeaProjects/ATM/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/ATM)
+2025-10-05T15:14:16.660+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-10-05T15:14:16.734+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-05T15:14:16.736+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2025-10-05T15:14:16.765+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-05T15:14:16.765+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-05T15:14:16.765+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-05T15:14:16.769+03:00  INFO 30766 --- [ATM] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-05T15:14:16.769+03:00  INFO 30766 --- [ATM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 108 ms
+2025-10-05T15:14:16.789+03:00  INFO 30766 --- [ATM] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-05T15:14:16.789+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-05T15:14:16.791+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-05T15:14:16.792+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-10-05T15:14:16.794+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@21de20c1
+2025-10-05T15:14:16.794+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-10-05T15:14:16.794+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-05T15:14:16.794+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-05T15:14:16.794+03:00  INFO 30766 --- [ATM] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-05T15:14:16.809+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-05T15:14:16.814+03:00  INFO 30766 --- [ATM] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:14:16.842+03:00  WARN 30766 --- [ATM] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-05T15:14:16.906+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-05T15:14:16.907+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-05T15:14:16.918+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-05T15:14:16.922+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Started AtmApplication in 0.268 seconds (process running for 930.781)
+2025-10-05T15:14:16.922+03:00  INFO 30766 --- [ATM] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-05T15:14:37.713+03:00  INFO 30766 --- [ATM] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-05T15:14:37.714+03:00  INFO 30766 --- [ATM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-05T15:14:37.716+03:00  INFO 30766 --- [ATM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-05T15:14:37.928+03:00  INFO 30766 --- [ATM] [http-nio-8080-exec-1] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 55 ms
+2025-10-05T15:18:48.830+03:00  INFO 30766 --- [ATM] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-10-05T15:18:48.833+03:00  INFO 30766 --- [ATM] [Thread-11] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-05T15:18:48.836+03:00  INFO 30766 --- [ATM] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-05T15:18:48.839+03:00  INFO 30766 --- [ATM] [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:18:48.840+03:00  INFO 30766 --- [ATM] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2025-10-05T15:18:48.842+03:00  INFO 30766 --- [ATM] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2025-10-05T15:18:48.897+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Starting AtmApplication using Java 25 with PID 30766 (/Users/ayhanunlu/IdeaProjects/ATM/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/ATM)
+2025-10-05T15:18:48.897+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-10-05T15:18:48.973+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-05T15:18:48.976+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2025-10-05T15:18:49.005+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-05T15:18:49.005+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-05T15:18:49.005+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-05T15:18:49.008+03:00  INFO 30766 --- [ATM] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-05T15:18:49.008+03:00  INFO 30766 --- [ATM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 110 ms
+2025-10-05T15:18:49.029+03:00  INFO 30766 --- [ATM] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-05T15:18:49.030+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-05T15:18:49.032+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-05T15:18:49.032+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2025-10-05T15:18:49.035+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@334461fb
+2025-10-05T15:18:49.035+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2025-10-05T15:18:49.036+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-05T15:18:49.036+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-05T15:18:49.036+03:00  INFO 30766 --- [ATM] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-05T15:18:49.051+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-05T15:18:49.057+03:00  INFO 30766 --- [ATM] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:18:49.080+03:00  WARN 30766 --- [ATM] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-05T15:18:49.145+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-05T15:18:49.146+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-05T15:18:49.156+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-05T15:18:49.159+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Started AtmApplication in 0.27 seconds (process running for 1203.027)
+2025-10-05T15:18:49.160+03:00  INFO 30766 --- [ATM] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-05T15:19:30.938+03:00  INFO 30766 --- [ATM] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-05T15:19:30.941+03:00  INFO 30766 --- [ATM] [Thread-15] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-05T15:19:30.944+03:00  INFO 30766 --- [ATM] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-05T15:19:30.948+03:00  INFO 30766 --- [ATM] [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:19:30.949+03:00  INFO 30766 --- [ATM] [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2025-10-05T15:19:30.952+03:00  INFO 30766 --- [ATM] [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2025-10-05T15:19:31.007+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Starting AtmApplication using Java 25 with PID 30766 (/Users/ayhanunlu/IdeaProjects/ATM/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/ATM)
+2025-10-05T15:19:31.007+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-10-05T15:19:31.076+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-05T15:19:31.079+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2025-10-05T15:19:31.119+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-05T15:19:31.120+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-05T15:19:31.120+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-05T15:19:31.123+03:00  INFO 30766 --- [ATM] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-05T15:19:31.123+03:00  INFO 30766 --- [ATM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 116 ms
+2025-10-05T15:19:31.143+03:00  INFO 30766 --- [ATM] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-05T15:19:31.144+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-05T15:19:31.146+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-05T15:19:31.146+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2025-10-05T15:19:31.149+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5b57533
+2025-10-05T15:19:31.149+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2025-10-05T15:19:31.149+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-05T15:19:31.149+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-05T15:19:31.149+03:00  INFO 30766 --- [ATM] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-5)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-05T15:19:31.165+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-05T15:19:31.171+03:00  INFO 30766 --- [ATM] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:19:31.191+03:00  WARN 30766 --- [ATM] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-05T15:19:31.249+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-05T15:19:31.250+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-05T15:19:31.260+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-05T15:19:31.263+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Started AtmApplication in 0.264 seconds (process running for 1245.131)
+2025-10-05T15:19:31.264+03:00  INFO 30766 --- [ATM] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-05T15:22:01.107+03:00  INFO 30766 --- [ATM] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-10-05T15:22:01.111+03:00  INFO 30766 --- [ATM] [Thread-19] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-05T15:22:01.113+03:00  INFO 30766 --- [ATM] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-05T15:22:01.115+03:00  INFO 30766 --- [ATM] [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:22:01.115+03:00  INFO 30766 --- [ATM] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2025-10-05T15:22:01.116+03:00  INFO 30766 --- [ATM] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2025-10-05T15:22:01.160+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Starting AtmApplication using Java 25 with PID 30766 (/Users/ayhanunlu/IdeaProjects/ATM/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/ATM)
+2025-10-05T15:22:01.160+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-10-05T15:22:01.231+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-05T15:22:01.234+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2025-10-05T15:22:01.260+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-05T15:22:01.260+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-05T15:22:01.260+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-05T15:22:01.263+03:00  INFO 30766 --- [ATM] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-05T15:22:01.263+03:00  INFO 30766 --- [ATM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 102 ms
+2025-10-05T15:22:01.281+03:00  INFO 30766 --- [ATM] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-05T15:22:01.281+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-05T15:22:01.283+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-05T15:22:01.283+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2025-10-05T15:22:01.286+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e261d7d
+2025-10-05T15:22:01.286+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2025-10-05T15:22:01.286+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-05T15:22:01.286+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-05T15:22:01.286+03:00  INFO 30766 --- [ATM] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-6)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-05T15:22:01.298+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-05T15:22:01.304+03:00  INFO 30766 --- [ATM] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:22:01.327+03:00  WARN 30766 --- [ATM] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-05T15:22:01.385+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-05T15:22:01.386+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-05T15:22:01.395+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-05T15:22:01.398+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Started AtmApplication in 0.245 seconds (process running for 1395.264)
+2025-10-05T15:22:01.398+03:00  INFO 30766 --- [ATM] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-05T15:29:31.445+03:00  INFO 30766 --- [ATM] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2025-10-05T15:29:31.450+03:00  INFO 30766 --- [ATM] [Thread-23] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-05T15:29:31.453+03:00  INFO 30766 --- [ATM] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-05T15:29:31.457+03:00  INFO 30766 --- [ATM] [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:29:31.458+03:00  INFO 30766 --- [ATM] [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2025-10-05T15:29:31.461+03:00  INFO 30766 --- [ATM] [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2025-10-05T15:29:31.518+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Starting AtmApplication using Java 25 with PID 30766 (/Users/ayhanunlu/IdeaProjects/ATM/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/ATM)
+2025-10-05T15:29:31.518+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-10-05T15:29:31.587+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-05T15:29:31.590+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2025-10-05T15:29:31.619+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-05T15:29:31.620+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-05T15:29:31.620+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-05T15:29:31.623+03:00  INFO 30766 --- [ATM] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-05T15:29:31.623+03:00  INFO 30766 --- [ATM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 104 ms
+2025-10-05T15:29:31.642+03:00  INFO 30766 --- [ATM] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-05T15:29:31.642+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-05T15:29:31.644+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-05T15:29:31.645+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2025-10-05T15:29:31.647+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@191a7338
+2025-10-05T15:29:31.647+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2025-10-05T15:29:31.648+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-05T15:29:31.648+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-05T15:29:31.648+03:00  INFO 30766 --- [ATM] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-7)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-05T15:29:31.661+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-05T15:29:31.669+03:00  INFO 30766 --- [ATM] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:29:31.692+03:00  WARN 30766 --- [ATM] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-05T15:29:31.750+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-05T15:29:31.750+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-05T15:29:31.759+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-05T15:29:31.762+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Started AtmApplication in 0.251 seconds (process running for 1845.625)
+2025-10-05T15:29:31.763+03:00  INFO 30766 --- [ATM] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-05T15:37:26.776+03:00  INFO 30766 --- [ATM] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-10-05T15:37:26.779+03:00  INFO 30766 --- [ATM] [Thread-27] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-05T15:37:26.780+03:00  INFO 30766 --- [ATM] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-05T15:37:26.782+03:00  INFO 30766 --- [ATM] [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:37:26.782+03:00  INFO 30766 --- [ATM] [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2025-10-05T15:37:26.783+03:00  INFO 30766 --- [ATM] [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2025-10-05T15:37:26.823+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Starting AtmApplication using Java 25 with PID 30766 (/Users/ayhanunlu/IdeaProjects/ATM/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/ATM)
+2025-10-05T15:37:26.823+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-10-05T15:37:26.890+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-05T15:37:26.893+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2025-10-05T15:37:26.919+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-05T15:37:26.919+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-05T15:37:26.919+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-05T15:37:26.922+03:00  INFO 30766 --- [ATM] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-05T15:37:26.922+03:00  INFO 30766 --- [ATM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 98 ms
+2025-10-05T15:37:26.942+03:00  INFO 30766 --- [ATM] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-05T15:37:26.942+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-05T15:37:26.944+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-05T15:37:26.944+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2025-10-05T15:37:26.946+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b4b028a
+2025-10-05T15:37:26.946+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2025-10-05T15:37:26.946+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-05T15:37:26.946+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-05T15:37:26.946+03:00  INFO 30766 --- [ATM] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-8)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-05T15:37:26.958+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-05T15:37:26.964+03:00  INFO 30766 --- [ATM] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:37:26.986+03:00  WARN 30766 --- [ATM] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-05T15:37:27.044+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-05T15:37:27.045+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-05T15:37:27.053+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-05T15:37:27.057+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Started AtmApplication in 0.24 seconds (process running for 2320.921)
+2025-10-05T15:37:27.057+03:00  INFO 30766 --- [ATM] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-05T15:38:20.927+03:00  INFO 30766 --- [ATM] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-10-05T15:38:20.930+03:00  INFO 30766 --- [ATM] [Thread-31] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-05T15:38:20.932+03:00  INFO 30766 --- [ATM] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-05T15:38:20.935+03:00  INFO 30766 --- [ATM] [Thread-31] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:38:20.937+03:00  INFO 30766 --- [ATM] [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2025-10-05T15:38:20.940+03:00  INFO 30766 --- [ATM] [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2025-10-05T15:38:20.996+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Starting AtmApplication using Java 25 with PID 30766 (/Users/ayhanunlu/IdeaProjects/ATM/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/ATM)
+2025-10-05T15:38:20.996+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-10-05T15:38:21.059+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-05T15:38:21.061+03:00  INFO 30766 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2025-10-05T15:38:21.091+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-05T15:38:21.092+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-05T15:38:21.092+03:00  INFO 30766 --- [ATM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-05T15:38:21.094+03:00  INFO 30766 --- [ATM] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-05T15:38:21.094+03:00  INFO 30766 --- [ATM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 97 ms
+2025-10-05T15:38:21.112+03:00  INFO 30766 --- [ATM] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-05T15:38:21.113+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-05T15:38:21.114+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-05T15:38:21.115+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2025-10-05T15:38:21.117+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3d5f7ebb
+2025-10-05T15:38:21.117+03:00  INFO 30766 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2025-10-05T15:38:21.118+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-05T15:38:21.118+03:00  WARN 30766 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-05T15:38:21.118+03:00  INFO 30766 --- [ATM] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-9)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-05T15:38:21.128+03:00  INFO 30766 --- [ATM] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-05T15:38:21.134+03:00  INFO 30766 --- [ATM] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-05T15:38:21.157+03:00  WARN 30766 --- [ATM] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-05T15:38:21.214+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-05T15:38:21.214+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-05T15:38:21.223+03:00  INFO 30766 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-05T15:38:21.226+03:00  INFO 30766 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Started AtmApplication in 0.236 seconds (process running for 2375.091)
+2025-10-05T15:38:21.227+03:00  INFO 30766 --- [ATM] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-05T15:39:20.081+03:00  INFO 30766 --- [ATM] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-05T15:39:20.081+03:00  INFO 30766 --- [ATM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-05T15:39:20.083+03:00  INFO 30766 --- [ATM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-05T15:39:28.363+03:00  INFO 30766 --- [ATM] [http-nio-8080-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 48 ms
