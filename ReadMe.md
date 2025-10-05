@@ -65,6 +65,9 @@
 - View Transactions
 - Exit
 
+
+[Swagger UI](http://localhost:8080/swagger-ui/index.html)
+
 ## License
 
 This project is free to use, modify, and distribute.  
