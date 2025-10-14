@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1")
-public class UserController {
+public class UserRestController {
 
     @Autowired
     UserServices userServices;
@@ -25,6 +25,10 @@ public class UserController {
     public UserDto loginUser(@RequestParam String username, @RequestParam String password) {
         return userServices.login(username, password);
     }
+
+
+
+
 
 
 }

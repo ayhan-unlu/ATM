@@ -1,0 +1,129 @@
+package com.ayhanunlu.controller;
+
+import com.ayhanunlu.data.dto.UserDto;
+import com.ayhanunlu.data.entity.UserEntity;
+import com.ayhanunlu.mapper.UserMapper;
+import com.ayhanunlu.repository.UserRepository;
+import com.ayhanunlu.service.BankHelper;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+
+@Controller
+public class ThymeleafController {
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    BankHelper bankHelper;
+
+    // DashBoard
+    // http://localhost:8080/dashboard
+    @GetMapping("/dashboard")
+    public String getDashboard(HttpSession httpSession, Model model) {
+        if (!sessionLoginCheck(httpSession)) {
+            return "redirect:/login";
+        }
+        model.addAttribute("user", httpSession.getAttribute("loggedInUser"));
+        return "dashboard";
+    }
+
+    // Deposit
+    // http://localhost:8080/deposit
+    @GetMapping("/deposit")
+    public String getDeposit(HttpSession httpSession, Model model) {
+        if (!sessionLoginCheck(httpSession)) {
+            return "redirect:/login";
+        }
+        model.addAttribute("user", httpSession.getAttribute("loggedInUser"));
+        return "deposit";
+    }
+
+    // WithDraw
+    // http://localhost:8080/withdraw
+    @GetMapping("/withdraw")
+    public String getWithdraw(HttpSession httpSession, Model model) {
+        if (!sessionLoginCheck(httpSession)) {
+            return "redirect:/login";
+        }
+        model.addAttribute("user", httpSession.getAttribute("loggedInUser"));
+        return "withdraw";
+    }
+
+    // Transfer
+    // http://localhost:8080/transfer
+    @GetMapping("/transfer")
+    public String getTransfer(HttpSession httpSession, Model model) {
+        if (!sessionLoginCheck(httpSession)) {
+            return "redirect:/login";
+        }
+        model.addAttribute("user", httpSession.getAttribute("loggedInUser"));
+        return "transfer";
+    }
+
+    // View Balance
+    // http://localhost:8080/viewbalance
+    @GetMapping("/viewbalance")
+    public String getViewBalance(HttpSession httpSession, Model model) {
+        if (!sessionLoginCheck(httpSession)) {
+            return "redirect:/login";
+        }
+        model.addAttribute("user", httpSession.getAttribute("loggedInUser"));
+        //Usermodel.getAttribute("user")
+    /*    UserDto userDto = UserMapper.INSTANCE.fromUserEntityToUserDto((UserEntity) httpSession.getAttribute("loggedInUser"));
+        bankHelper.viewBalance(userDto);*/
+        return "viewbalance";
+    }
+
+    // Login
+    // http://localhost:8080/login
+    @GetMapping("/login")
+    public String getLogin() {
+        return "login";
+    }
+
+    // Login
+    // http://localhost:8080/login
+    @PostMapping("/login")
+    public String login(@RequestParam String username, @RequestParam String password, HttpSession httpSession) {
+        System.out.println("username: " + username + " password: " + password);
+        UserEntity userEntity = userRepository.findByUsername(username);
+        System.out.println("userEntity: " + userEntity);
+        if (userEntity != null && userEntity.getPassword().equals(password)) {
+            httpSession.setAttribute("loggedInUser", userEntity);
+            return "redirect:/dashboard";
+        }
+        return "login";
+    }
+
+    // Logout
+    // http://localhost:8080/logout
+    @GetMapping("/logout")
+    public String logout(HttpSession httpSession) {
+        httpSession.invalidate();
+        return "redirect:/login";
+    }
+
+    public boolean sessionLoginCheck(HttpSession httpSession) {
+        if (httpSession.getAttribute("loggedInUser") == null) return false;
+        else return true;
+    }
+
+
+    //http://localhost:8080/test
+    @GetMapping("/test")
+    @ResponseBody
+    public String test() {
+        List<UserEntity> list = userRepository.findAll();
+        System.out.println("DB contains " + list);
+        return list.toString();
+    }
+}

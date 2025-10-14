@@ -1,4 +1,4 @@
-package com.ayhanunlu.bean;
+package com.ayhanunlu.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

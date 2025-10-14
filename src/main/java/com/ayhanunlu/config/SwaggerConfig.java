@@ -1,6 +1,5 @@
 package com.ayhanunlu.config;
 
-import com.ayhanunlu.bean.SwaggerBean;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.OpenAPI;
 import org.springframework.beans.factory.annotation.Autowired;
