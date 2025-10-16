@@ -5,6 +5,7 @@ import com.ayhanunlu.data.entity.UserEntity;
 import com.ayhanunlu.mapper.UserMapper;
 import com.ayhanunlu.repository.UserRepository;
 import com.ayhanunlu.service.BankHelper;
+import com.ayhanunlu.service.UserServices;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,13 @@ public class ThymeleafController {
     UserRepository userRepository;
 
     @Autowired
-    BankHelper bankHelper;
+    UserServices userServices;
+
+    @Autowired
+    HttpSession httpSession;
+
+/*    @Autowired
+    private UserMapper userMapper;*/
 
     // DashBoard
     // http://localhost:8080/dashboard
@@ -102,6 +109,18 @@ public class ThymeleafController {
             return "redirect:/dashboard";
         }
         return "login";
+    }
+
+    //    Deposit
+//http://localhost:8080/deposit?amount=?
+    @PostMapping("/deposit")
+
+    public String deposit(@RequestParam int amount) {
+     //   System.out.println("amount" + amount);
+        UserEntity sessionUserEntity = (UserEntity) httpSession.getAttribute("loggedInUser");
+        UserEntity updatedUserEntity = userServices.deposit(sessionUserEntity.getId(), amount);
+        httpSession.setAttribute("loggedInUser",updatedUserEntity);
+        return "redirect:/deposit";
     }
 
     // Logout

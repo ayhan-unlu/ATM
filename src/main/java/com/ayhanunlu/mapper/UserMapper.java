@@ -5,7 +5,7 @@ import com.ayhanunlu.data.dto.UserDto;
 import com.ayhanunlu.data.entity.UserEntity;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
