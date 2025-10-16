@@ -15,4 +15,8 @@ public interface UserServices {
 
     UserEntity deposit(Integer id, int amount);
 
+    UserEntity withdraw(Integer id, int amount);
+
+
+
 }

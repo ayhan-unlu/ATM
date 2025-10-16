@@ -19,10 +19,18 @@
 
 <div class="container mt-5">
     <h1 class="text-center">Welcome to the Withdraw Menu</h1>
+    <h2> User <span th:text="${user.username}"></span>'s Balance: <span th:text="${user.balance}"></span></h2>
 
     <!-- ===============================
          Button Example
          =============================== -->
+
+
+    <form th:action="@{/withdraw}" method="post">
+        <label th:text="'Amount to Withdraw'"></label>
+        <input type="number" min="0" name="amount" required>
+        <button type="submit" th:text="'Submit'"></button>
+    </form>
     <div class="text-center mt-4">
         <a th:href="@{/deposit}" class="btn btn-success" th:text="'Deposit'"></a>
         <a th:href="@{/transfer}" class="btn btn-warning" th:text="'Transfer'"></a>
@@ -48,7 +56,6 @@
          Forms, Cards, Alerts, Modals, Navbar, Tables, Tooltips, Dropdowns, Badges
          =============================== -->
     <!--
-    <form> ... </form>
     <div class="card"> ... </div>
     <div class="alert alert-primary"> ... </div>
     <nav class="navbar"> ... </nav>

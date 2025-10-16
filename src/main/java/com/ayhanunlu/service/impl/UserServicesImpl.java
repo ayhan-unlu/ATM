@@ -72,6 +72,19 @@ public class UserServicesImpl implements UserServices {
         return userEntity;
     }
 
+    @Transactional
+    @Override
+    public UserEntity withdraw(Integer id, int amount){
+        UserEntity userEntity = userRepository.findById(id)
+                .orElseThrow(()->new RuntimeException("User not found with Id: "+id));
+        System.out.println("Previous Balance: " + userEntity.getBalance());
+        userEntity.setBalance(userEntity.getBalance()-amount);
+        System.out.println("New Balance: "+ userEntity.getBalance());
+        userRepository.save(userEntity);
+
+        return userEntity;
+    }
+
     public int calculateNewDeposit(UserEntity userEntity, int amount){
         if(userEntity!=null){
             System.out.println("Deposit successful"+userEntity.getBalance()+amount);

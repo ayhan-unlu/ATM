@@ -112,16 +112,27 @@ public class ThymeleafController {
     }
 
     //    Deposit
-//http://localhost:8080/deposit?amount=?
+    //http://localhost:8080/deposit?amount=?
     @PostMapping("/deposit")
-
     public String deposit(@RequestParam int amount) {
-     //   System.out.println("amount" + amount);
+        //   System.out.println("amount" + amount);
         UserEntity sessionUserEntity = (UserEntity) httpSession.getAttribute("loggedInUser");
         UserEntity updatedUserEntity = userServices.deposit(sessionUserEntity.getId(), amount);
-        httpSession.setAttribute("loggedInUser",updatedUserEntity);
+        httpSession.setAttribute("loggedInUser", updatedUserEntity);
         return "redirect:/deposit";
     }
+
+    // Withdraw
+    // http://localhost:8080/withdraw?amount=?
+    @PostMapping("/withdraw")
+    public String withdraw(@RequestParam int amount){
+        UserEntity sessionUserEntity = (UserEntity)httpSession.getAttribute("loggedInUser");
+        UserEntity updatedUserEntity = userServices.withdraw(sessionUserEntity.getId(),amount);
+        httpSession.setAttribute("loggedInUser",updatedUserEntity);
+        return "redirect:/withdraw";
+    }
+
+
 
     // Logout
     // http://localhost:8080/logout
