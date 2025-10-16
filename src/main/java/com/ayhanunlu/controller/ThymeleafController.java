@@ -125,13 +125,22 @@ public class ThymeleafController {
     // Withdraw
     // http://localhost:8080/withdraw?amount=?
     @PostMapping("/withdraw")
-    public String withdraw(@RequestParam int amount){
-        UserEntity sessionUserEntity = (UserEntity)httpSession.getAttribute("loggedInUser");
-        UserEntity updatedUserEntity = userServices.withdraw(sessionUserEntity.getId(),amount);
-        httpSession.setAttribute("loggedInUser",updatedUserEntity);
+    public String withdraw(@RequestParam int amount) {
+        UserEntity sessionUserEntity = (UserEntity) httpSession.getAttribute("loggedInUser");
+        UserEntity updatedUserEntity = userServices.withdraw(sessionUserEntity.getId(), amount);
+        httpSession.setAttribute("loggedInUser", updatedUserEntity);
         return "redirect:/withdraw";
     }
 
+    // Transfer
+    // http://localhost:8080/transfer?receiver=?amount=?;
+    @PostMapping("/transfer")
+    public String transfer(@RequestParam int receiverId, @RequestParam int amount) {
+        UserEntity sessionUserEntity = (UserEntity) httpSession.getAttribute("loggedInUser");
+        UserEntity updatedUserEntity = userServices.transfer(sessionUserEntity.getId(), receiverId, amount);
+        httpSession.setAttribute("loggedInUser", updatedUserEntity);
+        return "redirect:/transfer";
+    }
 
 
     // Logout

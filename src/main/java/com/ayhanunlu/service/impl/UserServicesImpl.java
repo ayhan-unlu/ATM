@@ -62,39 +62,51 @@ public class UserServicesImpl implements UserServices {
 
     @Transactional
     @Override
-    public UserEntity deposit(Integer id, int amount){
+    public UserEntity deposit(Integer id, int amount) {
         UserEntity userEntity = userRepository.findById(id)
-                .orElseThrow(()->new RuntimeException("User not found with Id: "+id));
+                .orElseThrow(() -> new RuntimeException("User not found with Id: " + id));
         System.out.println("Previous Balance: " + userEntity.getBalance());
-         userEntity.setBalance(userEntity.getBalance()+amount);
-        System.out.println("New Balance: "+ userEntity.getBalance());
-         userRepository.save(userEntity);
+        userEntity.setBalance(userEntity.getBalance() + amount);
+        System.out.println("New Balance: " + userEntity.getBalance());
+        userRepository.save(userEntity);
         return userEntity;
     }
 
     @Transactional
     @Override
-    public UserEntity withdraw(Integer id, int amount){
+    public UserEntity withdraw(Integer id, int amount) {
         UserEntity userEntity = userRepository.findById(id)
-                .orElseThrow(()->new RuntimeException("User not found with Id: "+id));
+                .orElseThrow(() -> new RuntimeException("User not found with Id: " + id));
         System.out.println("Previous Balance: " + userEntity.getBalance());
-        userEntity.setBalance(userEntity.getBalance()-amount);
-        System.out.println("New Balance: "+ userEntity.getBalance());
+        userEntity.setBalance(userEntity.getBalance() - amount);
+        System.out.println("New Balance: " + userEntity.getBalance());
         userRepository.save(userEntity);
 
         return userEntity;
     }
 
-    public int calculateNewDeposit(UserEntity userEntity, int amount){
-        if(userEntity!=null){
-            System.out.println("Deposit successful"+userEntity.getBalance()+amount);
-            return userEntity.getBalance()+amount;
+    @Transactional
+    @Override
+    public UserEntity transfer(Integer senderId, Integer receiverId, int amount) {
+        UserEntity senderUserEntity = userRepository.findById(senderId)
+                .orElseThrow(() -> new RuntimeException("Sender not found with Id: " + senderId));
+        UserEntity receiverUserEntity = userRepository.findById(receiverId)
+                .orElseThrow(() -> new RuntimeException("Receiver not found with Id: " + receiverId));
+        senderUserEntity.setBalance(senderUserEntity.getBalance() - amount);
+        userRepository.save(senderUserEntity);
+        receiverUserEntity.setBalance(receiverUserEntity.getBalance() + amount);
+        userRepository.save(receiverUserEntity);
+        return senderUserEntity;
+    }
+
+    public int calculateNewDeposit(UserEntity userEntity, int amount) {
+        if (userEntity != null) {
+            System.out.println("Deposit successful" + userEntity.getBalance() + amount);
+            return userEntity.getBalance() + amount;
 
         }
         return 0;
     }
-
-
 
 
 }

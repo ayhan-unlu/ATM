@@ -17,6 +17,8 @@ public interface UserServices {
 
     UserEntity withdraw(Integer id, int amount);
 
+    UserEntity transfer(Integer senderId, Integer receiverId, int amount);
+
 
 
 }

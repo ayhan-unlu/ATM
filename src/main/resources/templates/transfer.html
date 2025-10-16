@@ -19,10 +19,18 @@
 
 <div class="container mt-5">
     <h1 class="text-center">Welcome to the Transfer Menu</h1>
+    <h2>User <span th:text="${user.username}"></span>'s Balance: <span th:text="${user.balance}"></span></h2>
 
     <!-- ===============================
          Button Example
          =============================== -->
+    <form th:action="@{/transfer}" method="post">
+        <label th:text="'Receiver user id'"></label>
+        <input type="number" min="0" name="receiverId" required>
+        <label th:text="'Transfer Amount'"></label>
+        <input type="number" min="0" name="amount" required>
+        <button type="submit" th:text="'Submit'"></button>
+    </form>
     <div class="text-center mt-4">
         <a th:href="@{/deposit}" class="btn btn-success">Deposit</a>
         <a th:href="@{/withdraw}" class="btn btn-danger">Withdraw</a>
@@ -48,7 +56,6 @@
          Forms, Cards, Alerts, Modals, Navbar, Tables, Tooltips, Dropdowns, Badges
          =============================== -->
     <!--
-    <form> ... </form>
     <div class="card"> ... </div>
     <div class="alert alert-primary"> ... </div>
     <nav class="navbar"> ... </nav>
