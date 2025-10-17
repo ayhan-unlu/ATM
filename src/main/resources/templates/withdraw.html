@@ -24,7 +24,7 @@
     <!-- ===============================
          Button Example
          =============================== -->
-
+<div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
 
     <form th:action="@{/withdraw}" method="post">
         <label th:text="'Amount to Withdraw'"></label>

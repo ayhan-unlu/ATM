@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Login Menu </title>
+    <title> Sign up Menu</title>
 
     <!-- ===============================
          Bootstrap CSS
@@ -18,13 +18,25 @@
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center">
-        Welcome to the Bank of Spring
-    </h1>
+    <h1 class="text-center">Welcome to the Sign Menu</h1>
 
     <!-- ===============================
          Button Example
          =============================== -->
+
+    <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
+    <form th:action="@{/signup}" method="post">
+        <label th:text="'Username'"></label>
+        <input type="text" name="username" required>
+        <label th:text="'Password'"></label>
+        <input type="password" name="password" required>
+        <button type="submit" th:text="'Sign Up'"></button>
+    </form>
+    <div class="text-center mt-4">
+        <a th:href="@{/login}" class="btn btn-primary" th:text="'Back To Login'"></a>
+        <!--        <button class="btn btn-primary">Login Button-->
+        <!--        </button>-->
+    </div>
 
     <!-- ===============================
          End Button Example
@@ -41,21 +53,6 @@
          Commented Sections for Future Use
          Forms, Cards, Alerts, Modals, Navbar, Tables, Tooltips, Dropdowns, Badges
          =============================== -->
-    <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
-
-    <form th:action="@{/login}" method="post">
-        <label>Username:</label>
-        <input type="text" name="username" value="a">
-
-        <label>Password:</label>
-        <input type="password" name="password" value="a">
-
-        <button type="submit">Login</button>
-    </form>
-    <div class="text-center mt-4">
-
-        <a th:href="@{/signup}" class="btn btn-primary">Sign Up</a>
-    </div>
     <!--
     <div class="card"> ... </div>
     <div class="alert alert-primary"> ... </div>

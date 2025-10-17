@@ -18,4 +18,5 @@ public class UserDto {
     private String password;
     private double balance;
     private String type;
+    private boolean blocked;
 }

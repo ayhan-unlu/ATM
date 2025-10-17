@@ -24,12 +24,13 @@
     <!-- ===============================
          Button Example
          =============================== -->
+    <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
     <form th:action="@{/transfer}" method="post">
         <label th:text="'Receiver user id'"></label>
         <input type="number" min="0" name="receiverId" required>
         <label th:text="'Transfer Amount'"></label>
         <input type="number" min="0" name="amount" required>
-        <button type="submit" th:text="'Submit'"></button>
+        <button type="submit" th:text="'Transfer'"></button>
     </form>
     <div class="text-center mt-4">
         <a th:href="@{/deposit}" class="btn btn-success">Deposit</a>

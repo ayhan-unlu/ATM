@@ -5,13 +5,10 @@ import com.ayhanunlu.data.entity.UserEntity;
 import com.ayhanunlu.mapper.UserMapper;
 import com.ayhanunlu.repository.UserRepository;
 import com.ayhanunlu.service.UserServices;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,22 +19,18 @@ public class UserServicesImpl implements UserServices {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private HttpSession httpSession;
 
-    //  SAVE
-    //  http://localhost:8080/api/v1/users
-    @PostMapping("/users")
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
-    public UserDto createUser(@RequestBody UserDto userDto) {
+    public UserDto createUser(UserDto userDto) {
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         UserEntity userEntity = UserMapper.INSTANCE.fromUserDtoToUserEntity(userDto);
         userRepository.save(userEntity);
         return userDto;
     }
 
-    // LIST
-    // http://localhost:8080/api/v1/users
-    @GetMapping("/users")
     @Override
     public List<UserDto> getAllUsers() {
         List<UserDto> listUserDto = new ArrayList<>();
@@ -52,10 +45,13 @@ public class UserServicesImpl implements UserServices {
 
     @Override
     public UserDto login(String username, String password) {
-        UserEntity userEntity = userRepository.findByUsernameAndPassword(username, password);
-        if (userEntity != null) {
-            System.out.println("Login successful");
-            return UserMapper.INSTANCE.fromUserEntityToUserDto(userEntity);
+        UserEntity userEntity = userRepository.findByUsername(username);
+
+        if ((userEntity != null) && (passwordEncoder.matches(password, userEntity.getPassword()))) {
+
+            UserDto userDto = UserMapper.INSTANCE.fromUserEntityToUserDto(userEntity);
+            userDto.setPassword(null);
+            return userDto;
         }
         return null;
     }
@@ -77,12 +73,17 @@ public class UserServicesImpl implements UserServices {
     public UserEntity withdraw(Integer id, int amount) {
         UserEntity userEntity = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with Id: " + id));
-        System.out.println("Previous Balance: " + userEntity.getBalance());
-        userEntity.setBalance(userEntity.getBalance() - amount);
-        System.out.println("New Balance: " + userEntity.getBalance());
-        userRepository.save(userEntity);
+        if (!checkBalance(amount, userEntity.getBalance())) {
+            throw new RuntimeException("Insufficient Balance");
+        } else {
 
-        return userEntity;
+            System.out.println("Previous Balance: " + userEntity.getBalance());
+            userEntity.setBalance(userEntity.getBalance() - amount);
+            System.out.println("New Balance: " + userEntity.getBalance());
+            userRepository.save(userEntity);
+
+            return userEntity;
+        }
     }
 
     @Transactional
@@ -90,22 +91,22 @@ public class UserServicesImpl implements UserServices {
     public UserEntity transfer(Integer senderId, Integer receiverId, int amount) {
         UserEntity senderUserEntity = userRepository.findById(senderId)
                 .orElseThrow(() -> new RuntimeException("Sender not found with Id: " + senderId));
-        UserEntity receiverUserEntity = userRepository.findById(receiverId)
-                .orElseThrow(() -> new RuntimeException("Receiver not found with Id: " + receiverId));
-        senderUserEntity.setBalance(senderUserEntity.getBalance() - amount);
-        userRepository.save(senderUserEntity);
-        receiverUserEntity.setBalance(receiverUserEntity.getBalance() + amount);
-        userRepository.save(receiverUserEntity);
-        return senderUserEntity;
+        if (!checkBalance(amount, senderUserEntity.getBalance())) {
+            throw new RuntimeException("Insufficient balance");
+        } else {
+            UserEntity receiverUserEntity = userRepository.findById(receiverId)
+                    .orElseThrow(() -> new RuntimeException("Receiver not found with Id: " + receiverId));
+            senderUserEntity.setBalance(senderUserEntity.getBalance() - amount);
+            userRepository.save(senderUserEntity);
+            receiverUserEntity.setBalance(receiverUserEntity.getBalance() + amount);
+            userRepository.save(receiverUserEntity);
+            return senderUserEntity;
+        }
     }
 
-    public int calculateNewDeposit(UserEntity userEntity, int amount) {
-        if (userEntity != null) {
-            System.out.println("Deposit successful" + userEntity.getBalance() + amount);
-            return userEntity.getBalance() + amount;
-
-        }
-        return 0;
+    @Override
+    public boolean checkBalance(int amount, int balance) {
+        return balance>=amount;
     }
 
 

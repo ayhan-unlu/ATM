@@ -19,6 +19,9 @@ public interface UserServices {
 
     UserEntity transfer(Integer senderId, Integer receiverId, int amount);
 
+    boolean checkBalance(int amount, int balance);
+
+
 
 
 }

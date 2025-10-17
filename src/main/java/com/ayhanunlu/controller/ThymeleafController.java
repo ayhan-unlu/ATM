@@ -8,6 +8,7 @@ import com.ayhanunlu.service.BankHelper;
 import com.ayhanunlu.service.UserServices;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,11 @@ public class ThymeleafController {
 
     @Autowired
     HttpSession httpSession;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    //    @Autowired
+    private UserMapper userMapper = UserMapper.INSTANCE;
 
 /*    @Autowired
     private UserMapper userMapper;*/
@@ -100,19 +106,75 @@ public class ThymeleafController {
     // Login
     // http://localhost:8080/login
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password, HttpSession httpSession) {
+    public String login(@RequestParam String username, @RequestParam String password, HttpSession httpSession, Model model) {
+        Integer loginAttempts = (Integer) httpSession.getAttribute("loginAttempts");
+        if (loginAttempts == null) loginAttempts = 0;
+
         System.out.println("username: " + username + " password: " + password);
         UserEntity userEntity = userRepository.findByUsername(username);
-        System.out.println("userEntity: " + userEntity);
-        if (userEntity != null && userEntity.getPassword().equals(password)) {
-            httpSession.setAttribute("loggedInUser", userEntity);
-            return "redirect:/dashboard";
+        //  model.addAttribute("loginAttempts", loginAttempts);
+        //  System.out.println("DB userEntity password: " + userEntity.getPassword());
+
+        if (userEntity == null) {
+            model.addAttribute("errorMessage", "No such Username: " + username);
+            return "login";
         }
-        return "login";
+        if (userEntity.isBlocked()) {
+            model.addAttribute("errorMessage", "Your account is blocked due to multiple wrong password access.Please contact the bank");
+            return "login";
+        }
+
+        if (!passwordEncoder.matches(password, userEntity.getPassword())) {
+            loginAttempts++;
+            httpSession.setAttribute("loginAttempts", loginAttempts);
+            if (loginAttempts >= 3) {
+                userEntity.setBlocked(true);
+                userRepository.save(userEntity);
+                model.addAttribute("errorMessage", "Too many failed login attempts. Account is blocked. Connect your bank");
+            } else {
+                model.addAttribute("errorMessage", "Wrong Password, try again. Attempts left " + (3 - loginAttempts));
+            }
+            return "login";
+        }
+        httpSession.setAttribute("loggedInUser", userEntity);
+        httpSession.removeAttribute("loginAttempts");
+        return "redirect:/dashboard";
     }
 
+
+    //Get to Signup PAge
+//http://localhost:8080/signup
+    @GetMapping("/signup")
+    public String getSignUp() {
+        return "signup";
+    }
+
+    // Signup
+// http://localhost:8080/signup
+    @PostMapping("/signup")
+    public String signup(@RequestParam String username, @RequestParam String password, Model model) {
+        if (userRepository.existsByUsername(username)) {
+            model.addAttribute("errorMessage", "Username already exists");
+            return "signup";
+        }
+/*
+        for(UserEntity userEntity:userRepository.findAll()){
+            if(username.equals(userEntity.getUsername())){
+                throw new RuntimeException("Username already exists");
+            }else {
+*/
+        UserDto userDto = new UserDto();
+        userDto.setUsername(username);
+        userDto.setPassword(passwordEncoder.encode(password));
+        userDto.setBalance(1000);
+        userDto.setType("customer");
+        userRepository.save(userMapper.fromUserDtoToUserEntity(userDto));
+        return "redirect:/login";
+    }
+
+
     //    Deposit
-    //http://localhost:8080/deposit?amount=?
+//http://localhost:8080/deposit?amount=?
     @PostMapping("/deposit")
     public String deposit(@RequestParam int amount) {
         //   System.out.println("amount" + amount);
@@ -123,28 +185,40 @@ public class ThymeleafController {
     }
 
     // Withdraw
-    // http://localhost:8080/withdraw?amount=?
+// http://localhost:8080/withdraw?amount=?
     @PostMapping("/withdraw")
-    public String withdraw(@RequestParam int amount) {
+    public String withdraw(@RequestParam int amount, Model model) {
         UserEntity sessionUserEntity = (UserEntity) httpSession.getAttribute("loggedInUser");
-        UserEntity updatedUserEntity = userServices.withdraw(sessionUserEntity.getId(), amount);
-        httpSession.setAttribute("loggedInUser", updatedUserEntity);
-        return "redirect:/withdraw";
+        try {
+            UserEntity updatedUserEntity = userServices.withdraw(sessionUserEntity.getId(), amount);
+            httpSession.setAttribute("loggedInUser", updatedUserEntity);
+            return "redirect:/withdraw";
+        } catch (RuntimeException e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("user", sessionUserEntity);
+            return "withdraw";
+        }
     }
 
     // Transfer
-    // http://localhost:8080/transfer?receiver=?amount=?;
+// http://localhost:8080/transfer?receiver=?amount=?;
     @PostMapping("/transfer")
-    public String transfer(@RequestParam int receiverId, @RequestParam int amount) {
+    public String transfer(@RequestParam int receiverId, @RequestParam int amount, Model model) {
         UserEntity sessionUserEntity = (UserEntity) httpSession.getAttribute("loggedInUser");
-        UserEntity updatedUserEntity = userServices.transfer(sessionUserEntity.getId(), receiverId, amount);
-        httpSession.setAttribute("loggedInUser", updatedUserEntity);
-        return "redirect:/transfer";
+        try {
+            UserEntity updatedUserEntity = userServices.transfer(sessionUserEntity.getId(), receiverId, amount);
+            httpSession.setAttribute("loggedInUser", updatedUserEntity);
+            return "redirect:/transfer";
+        } catch (RuntimeException e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("user", sessionUserEntity);
+            return "transfer";
+        }
     }
 
 
     // Logout
-    // http://localhost:8080/logout
+// http://localhost:8080/logout
     @GetMapping("/logout")
     public String logout(HttpSession httpSession) {
         httpSession.invalidate();

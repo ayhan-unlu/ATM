@@ -30,4 +30,7 @@ public class UserEntity {
 
     @Column(name="type")
     private String type;
+
+    @Column(name = "blocked")
+    private boolean blocked;
 }
