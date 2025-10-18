@@ -1,0 +1,40 @@
+2025-10-18T14:12:27.917+03:00  INFO 71262 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Starting AtmApplication using Java 25 with PID 71262 (/Users/ayhanunlu/IdeaProjects/ATM/target/classes started by ayhanunlu in /Users/ayhanunlu/IdeaProjects/ATM)
+2025-10-18T14:12:27.917+03:00  INFO 71262 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-10-18T14:12:27.991+03:00  INFO 71262 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-18T14:12:27.993+03:00  INFO 71262 --- [ATM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 1 JPA repository interface.
+2025-10-18T14:12:28.025+03:00  INFO 71262 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-18T14:12:28.025+03:00  INFO 71262 --- [ATM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-18T14:12:28.025+03:00  INFO 71262 --- [ATM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-18T14:12:28.028+03:00  INFO 71262 --- [ATM] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-18T14:12:28.028+03:00  INFO 71262 --- [ATM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 111 ms
+2025-10-18T14:12:28.048+03:00  INFO 71262 --- [ATM] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-18T14:12:28.049+03:00  INFO 71262 --- [ATM] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-18T14:12:28.050+03:00  INFO 71262 --- [ATM] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-18T14:12:28.050+03:00  INFO 71262 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-36 - Starting...
+2025-10-18T14:12:28.052+03:00  INFO 71262 --- [ATM] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-36 - Added connection com.mysql.cj.jdbc.ConnectionImpl@21f3e349
+2025-10-18T14:12:28.052+03:00  INFO 71262 --- [ATM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-36 - Start completed.
+2025-10-18T14:12:28.052+03:00  WARN 71262 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-18T14:12:28.052+03:00  WARN 71262 --- [ATM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-18T14:12:28.052+03:00  INFO 71262 --- [ATM] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-36)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-18T14:12:28.063+03:00  INFO 71262 --- [ATM] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-18T14:12:28.066+03:00  INFO 71262 --- [ATM] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18T14:12:28.086+03:00  INFO 71262 --- [ATM] [restartedMain] com.ayhanunlu.data.dto.BeanDto           : Before Bean is initialized Method works earlier
+2025-10-18T14:12:28.095+03:00  WARN 71262 --- [ATM] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-18T14:12:28.160+03:00  INFO 71262 --- [ATM] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-18T14:12:28.161+03:00  INFO 71262 --- [ATM] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-18T14:12:28.170+03:00  INFO 71262 --- [ATM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-18T14:12:28.174+03:00  INFO 71262 --- [ATM] [restartedMain] com.ayhanunlu.AtmApplication             : Started AtmApplication in 0.263 seconds (process running for 16242.31)
+2025-10-18T14:12:28.175+03:00  INFO 71262 --- [ATM] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-18T14:12:40.307+03:00  INFO 71262 --- [ATM] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-18T14:12:40.308+03:00  INFO 71262 --- [ATM] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-18T14:12:40.309+03:00  INFO 71262 --- [ATM] [SpringApplicationShutdownHook] com.ayhanunlu.data.dto.BeanDto           : After bean is destroyed this Method will work afterwards
+2025-10-18T14:12:40.309+03:00  INFO 71262 --- [ATM] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18T14:12:40.310+03:00  INFO 71262 --- [ATM] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-36 - Shutdown initiated...
+2025-10-18T14:12:40.310+03:00  INFO 71262 --- [ATM] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-36 - Shutdown completed.

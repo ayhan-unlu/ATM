@@ -1,20 +1,21 @@
 package com.ayhanunlu.controller;
 
+import com.ayhanunlu.data.dto.LogDto;
 import com.ayhanunlu.data.dto.UserDto;
 import com.ayhanunlu.data.entity.UserEntity;
 import com.ayhanunlu.mapper.UserMapper;
 import com.ayhanunlu.repository.UserRepository;
-import com.ayhanunlu.service.BankHelper;
+import com.ayhanunlu.service.UserActionsLoggerService;
 import com.ayhanunlu.service.UserServices;
+import com.ayhanunlu.service.impl.UserActionsLogReaderServiceImpl;
 import jakarta.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,15 +29,22 @@ public class ThymeleafController {
     UserServices userServices;
 
     @Autowired
+    UserActionsLoggerService userActionsLoggerService;
+
+    @Autowired
     HttpSession httpSession;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private BankController bankController;
+
     //    @Autowired
     private UserMapper userMapper = UserMapper.INSTANCE;
 
-/*    @Autowired
-    private UserMapper userMapper;*/
+    private static final Logger logger = LoggerFactory.getLogger(ThymeleafController.class);
+    @Autowired
+    private UserActionsLogReaderServiceImpl userActionsLogReaderService;
 
     // DashBoard
     // http://localhost:8080/dashboard
@@ -90,9 +98,7 @@ public class ThymeleafController {
             return "redirect:/login";
         }
         model.addAttribute("user", httpSession.getAttribute("loggedInUser"));
-        //Usermodel.getAttribute("user")
-    /*    UserDto userDto = UserMapper.INSTANCE.fromUserEntityToUserDto((UserEntity) httpSession.getAttribute("loggedInUser"));
-        bankHelper.viewBalance(userDto);*/
+
         return "viewbalance";
     }
 
@@ -121,6 +127,7 @@ public class ThymeleafController {
         }
         if (userEntity.isBlocked()) {
             model.addAttribute("errorMessage", "Your account is blocked due to multiple wrong password access.Please contact the bank");
+            userActionsLoggerService.logUserActions(userEntity.getId(), "BLOCKED LOGIN ATTEMPT", 0, null, "FAIL");
             return "login";
         }
 
@@ -131,18 +138,48 @@ public class ThymeleafController {
                 userEntity.setBlocked(true);
                 userRepository.save(userEntity);
                 model.addAttribute("errorMessage", "Too many failed login attempts. Account is blocked. Connect your bank");
+                userActionsLoggerService.logUserActions(userEntity.getId(), "USER BLOCKED", 0, null, "FAIL");
+
             } else {
                 model.addAttribute("errorMessage", "Wrong Password, try again. Attempts left " + (3 - loginAttempts));
+                userActionsLoggerService.logUserActions(userEntity.getId(), "WRONG PASSWORD", 0, null, "FAIL");
             }
             return "login";
         }
         httpSession.setAttribute("loggedInUser", userEntity);
         httpSession.removeAttribute("loginAttempts");
-        return "redirect:/dashboard";
+        if (userEntity.getType().equals("bank")) {
+
+            userActionsLoggerService.logUserActions(userEntity.getId(), "BANK LOGIN", 0, null, "Successful");
+            return "redirect:/bank_dashboard";
+        } else {
+            userActionsLoggerService.logUserActions(userEntity.getId(), "USER LOGIN", 0, null, "Successful");
+            return "redirect:/dashboard";
+        }
     }
 
 
-    //Get to Signup PAge
+    // User Actions Logs
+    // http://localhost:8080/user_action/{id}
+    @GetMapping("/user_actions/{id}")
+    public String getUserActions(
+            @PathVariable Long id,
+            @RequestParam (defaultValue="0") int page,
+            @RequestParam(defaultValue="10") int pageSize,
+            HttpSession httpSession,
+            Model model){
+        List<LogDto> logDtoListByUserId = userActionsLogReaderService.getLogDtoListByUserIdPaged(id,page,pageSize);
+        int totalPages = userActionsLogReaderService.getTotalPages(id,pageSize);
+
+        model.addAttribute("logDtoListByUserId", logDtoListByUserId);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("currentPage",page);
+        model.addAttribute("totalPages",totalPages);
+        model.addAttribute("listedUser", userServices.getUserById(id));
+        return "user_actions";
+    }
+
+    //Get to Signup Page
 //http://localhost:8080/signup
     @GetMapping("/signup")
     public String getSignUp() {
@@ -169,6 +206,7 @@ public class ThymeleafController {
         userDto.setBalance(1000);
         userDto.setType("customer");
         userRepository.save(userMapper.fromUserDtoToUserEntity(userDto));
+        userActionsLoggerService.logUserActions(userRepository.findByUsername(username).getId(), "USER CREATED", 0, null, "Successful");
         return "redirect:/login";
     }
 
@@ -181,6 +219,7 @@ public class ThymeleafController {
         UserEntity sessionUserEntity = (UserEntity) httpSession.getAttribute("loggedInUser");
         UserEntity updatedUserEntity = userServices.deposit(sessionUserEntity.getId(), amount);
         httpSession.setAttribute("loggedInUser", updatedUserEntity);
+        userActionsLoggerService.logUserActions(updatedUserEntity.getId(), "DEPOSIT", amount, null, "successful");
         return "redirect:/deposit";
     }
 
@@ -192,6 +231,7 @@ public class ThymeleafController {
         try {
             UserEntity updatedUserEntity = userServices.withdraw(sessionUserEntity.getId(), amount);
             httpSession.setAttribute("loggedInUser", updatedUserEntity);
+            userActionsLoggerService.logUserActions(updatedUserEntity.getId(), "WITHDRAW", amount, null, "successful");
             return "redirect:/withdraw";
         } catch (RuntimeException e) {
             model.addAttribute("errorMessage", e.getMessage());
@@ -208,6 +248,7 @@ public class ThymeleafController {
         try {
             UserEntity updatedUserEntity = userServices.transfer(sessionUserEntity.getId(), receiverId, amount);
             httpSession.setAttribute("loggedInUser", updatedUserEntity);
+            userActionsLoggerService.logUserActions(updatedUserEntity.getId(), "TRANSFER", amount, receiverId, "successful");
             return "redirect:/transfer";
         } catch (RuntimeException e) {
             model.addAttribute("errorMessage", e.getMessage());
@@ -221,6 +262,8 @@ public class ThymeleafController {
 // http://localhost:8080/logout
     @GetMapping("/logout")
     public String logout(HttpSession httpSession) {
+        UserEntity loggedInUserEntity = (UserEntity) httpSession.getAttribute("loggedInUser");
+        userActionsLoggerService.logUserActions(loggedInUserEntity.getId(), "LOGOUT", 0, null, "Successful");
         httpSession.invalidate();
         return "redirect:/login";
     }

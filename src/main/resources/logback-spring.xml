@@ -1,0 +1,37 @@
+<configuration>
+
+<!--    USER ACTION LOG FILE-->
+    <appender name="USER_ACTIONS_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>./log/user_actions.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>Id: %X{id} | %d{yyyy-MM-dd HH:mm:ss} | %level | %msg%n</pattern>
+        </encoder>
+    </appender>
+<!--    LOGS FROM CONTROLLER PACKAGE GO TO USER ACTION LOG FILE-->
+    <logger name="com.ayhanunlu.controller" level="INFO" additivity="false">
+        <appender-ref ref="USER_ACTIONS_FILE" />
+    </logger>
+<!--GENERAL APPLICATION LOG FILE-->
+    <appender name="GENERAL_LOG_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>./log/blog.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger{36}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+
+    </appender>
+
+<!--    ROOT LOGGER FOR EVERYTHING ELSE-->
+
+    <root level="INFO">
+        <appender-ref ref="GENERAL_LOG_FILE" />
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

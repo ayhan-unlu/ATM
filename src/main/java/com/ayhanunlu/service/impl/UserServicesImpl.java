@@ -37,9 +37,18 @@ public class UserServicesImpl implements UserServices {
         Iterable<UserEntity> userEntityList = userRepository.findAll();
         for (UserEntity userEntity : userEntityList) {
             UserDto userDto = UserMapper.INSTANCE.fromUserEntityToUserDto(userEntity);
-            listUserDto.add(userDto);
+
+            if(userDto.getType().equals("customer"))listUserDto.add(userDto);
         }
         return listUserDto;
+    }
+
+    @Override
+    public UserDto getUserById(Long id){
+        for(UserDto userDto : getAllUsers()){
+            if(userDto.getId().equals(id))return userDto;
+        }
+        return null;
     }
 
 

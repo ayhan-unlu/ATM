@@ -9,7 +9,10 @@ import java.util.List;
 public interface UserServices {
 
     UserDto createUser(UserDto userDto);
+
     List<UserDto> getAllUsers();
+
+    UserDto getUserById(Long id);
 
     UserDto login(String username, String password);
 
